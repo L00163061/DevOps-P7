@@ -20,8 +20,8 @@ public class Person {
         userAccounts.put("EUR", euroAccount);
     }
 
-    public void setAccountBalance(double startingBlanace) {
-        userAccounts.get("EUR").setBalance(startingBlanace);
+    public void setAccountBalance(double startingBalance, String accCurrency) {
+        userAccounts.get(accCurrency).setBalance(startingBalance);
     }
 
     public double getAccountBalance(String eur) {
@@ -30,5 +30,12 @@ public class Person {
 
     public Account getAccount(String account) {
         return userAccounts.get(account);
+    }
+
+    public void addAccount(String currencyName) {
+        Currency accCurrency = Currency.getInstance(currencyName);
+        Account euroAccount = new Account(accCurrency, 0);
+        userAccounts.put(currencyName, euroAccount);
+
     }
 }

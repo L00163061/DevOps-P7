@@ -8,4 +8,5 @@ public class ParameterTypes {
     public PaymentService paymentService(String type){
         return new PaymentService(type);
     }
+
 }
